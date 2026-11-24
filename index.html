@@ -80,7 +80,7 @@ section{padding-block:64px}
 
 /* Solução */
 .solution{background:var(--surface);border-block:1px solid var(--line)}
-.steps{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s}
+.steps{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:32px 24px;counter-reset:s}
 .steps li{counter-increment:s;min-width:0}
 .steps li::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:4px;background:var(--sign);color:var(--sign-ink);font:800 24px/1 var(--display);margin-bottom:14px}
 .steps h3{font-size:22px;text-transform:uppercase;margin-bottom:6px}
@@ -151,7 +151,20 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
 .usage figcaption{padding:16px 18px 20px}
 .usage figcaption h3{font-size:22px;text-transform:uppercase;margin-bottom:6px}
 .usage figcaption p{color:var(--muted);font-size:16px}
-@media (max-width:860px){</style>
+@media (max-width:860px){.usage{grid-template-columns:1fr}}
+.price-pill{display:inline-block;margin-top:20px;background:var(--tape);color:var(--tape-ink);font:700 18px/1.2 var(--display);text-transform:uppercase;letter-spacing:.03em;padding:10px 14px;border-radius:4px}
+.survey{background:var(--surface);border-block:1px solid var(--line)}
+.survey-note{margin-top:10px;color:var(--muted);font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+.stat{border-top:4px solid var(--sign);padding-top:14px;min-width:0}
+.stat b{display:block;font:800 clamp(44px,6vw,60px)/1 var(--display);color:var(--sign)}
+.stat span{display:block;margin-top:8px;color:var(--muted);font-size:16px}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.quotes blockquote{margin:0;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:18px 20px;font-size:16px;min-width:0}
+.quotes blockquote::before{content:"“";display:block;font:800 44px/0.6 var(--display);color:var(--tape);margin-bottom:6px}
+.quotes cite{display:block;margin-top:10px;font:500 13px/1.3 var(--mono);color:var(--muted);font-style:normal}
+@media (max-width:860px){.stats,.quotes{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
@@ -166,6 +179,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
       <div>
         <h1>E se o seu envio pelos Correios chegasse no interior em <em>até 48h</em>?</h1>
         <p class="lead">Os Correios já chegam a todas as cidades do país. O problema é a demora e o rastreio que trava. A Encomenda Já é uma proposta de nova modalidade de entrega <strong>dentro dos Correios</strong>: a triagem passa a ser feita em centros regionais, as rotas são planejadas por tecnologia e o rastreio funciona em tempo real.</p>
+        <p class="price-pill">Pensado para custar até R$ 25 por envio regional</p>
       </div>
 
       <div>
@@ -207,7 +221,7 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
           <p>Quem pode troca os Correios por transportadoras privadas. Mas elas focam nas capitais e, no interior, não atendem ou cobram caro.</p>
         </div>
       </div>
-      <p class="result">O resultado: <strong>o lojista do interior perde vendas e os Correios perdem clientes</strong> justamente onde são a única opção que chega a todo lugar.</p>
+      <p class="result">Para o lojista, cada atraso vira <strong>pedido cancelado, avaliação baixa na loja e cliente que não compra de novo</strong>. E os Correios perdem clientes justamente onde são a única opção que chega a todo lugar.</p>
     </div>
   </section>
 
@@ -218,8 +232,10 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
       <ol class="steps">
         <li><h3>Centros regionais</h3><p>A triagem é feita em centros regionais no interior. O pacote segue direto de uma cidade para a outra, sem passar pela capital.</p></li>
         <li><h3>Rotas inteligentes</h3><p>Um software planeja as rotas de entrega e evita viagens vazias ou desnecessárias. Isso reduz o prazo e o custo da operação.</p></li>
-        <li><h3>Rastreio real</h3><p>Rastreamento por GPS e avisos automáticos no WhatsApp para o lojista e para o cliente final.</p></li>
-        <li><h3>Coleta e garantia</h3><p>Coleta agendada na loja, sem precisar ir à agência. Se atrasar, o lojista recebe desconto no frete.</p></li>
+        <li><h3>Rastreio em tempo real</h3><p>Rastreamento por GPS e avisos automáticos no WhatsApp para o lojista e para o cliente final.</p></li>
+        <li><h3>Prazo e preço antes de enviar</h3><p>O lojista consulta o prazo e o valor de cada envio antes de postar e compara com as outras modalidades.</p></li>
+        <li><h3>Endereço pelo WhatsApp</h3><p>Se o cliente mudou de endereço, dá para corrigir pelo WhatsApp enquanto o pacote ainda está a caminho.</p></li>
+        <li><h3>Atrasou, frete devolvido</h3><p>Coleta agendada na loja e prazo garantido. Se a entrega atrasar, o valor do frete volta automaticamente, sem precisar abrir reclamação.</p></li>
       </ol>
       <p class="result" style="color:var(--muted);font-size:17px">Tudo isso usando a estrutura que os Correios já têm: agências, frota e presença em todos os municípios.</p>
     </div>
@@ -310,9 +326,28 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
             <tr><th scope="row">Prazo entre cidades da região</th><td class="n">Vários dias</td><td>Rápido, só nas capitais</td><td class="us">Até 48h</td></tr>
             <tr><th scope="row">Rastreamento</th><td class="n">Atualiza pouco</td><td class="y">Bom</td><td class="us y">GPS e WhatsApp</td></tr>
             <tr><th scope="row">Coleta na loja</th><td class="n">Só em contratos maiores</td><td>Só com volume alto</td><td class="us y">Sim, agendada</td></tr>
-            <tr><th scope="row">Se atrasar</th><td class="n">Nada muda</td><td class="n">Nada muda</td><td class="us y">Desconto no frete</td></tr>
+            <tr><th scope="row">Mudar o endereço no caminho</th><td class="n">Pouco prático</td><td>Depende da empresa</td><td class="us y">Pelo WhatsApp</td></tr>
+            <tr><th scope="row">Se atrasar</th><td class="n">Nada muda</td><td class="n">Nada muda</td><td class="us y">Frete devolvido automaticamente</td></tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="survey" id="pesquisa">
+    <div class="wrap">
+      <p class="eyebrow">O que a pesquisa mostrou</p>
+      <h2>Quem respondeu aprovou a proposta</h2>
+      <p class="survey-note">Resultado da nossa pesquisa de validação, com 24 respostas.</p>
+      <div class="stats">
+        <div class="stat"><b>67%</b><span>avaliaram a proposta com nota 4 ou 5, numa escala de 0 a 5</span></div>
+        <div class="stat"><b>2 em 3</b><span>consideram justo pagar até R$ 25 por envio, e é essa a faixa de preço que buscamos</span></div>
+        <div class="stat"><b>Nº 1</b><span>Entrega rápida e rastreio em tempo real foram os pedidos mais repetidos</span></div>
+      </div>
+      <div class="quotes">
+        <blockquote>Melhoria no rastreamento, os Correios às vezes não atualizam o site em tempo real, e quem postou fica sem a informação.<cite>Resposta da pesquisa</cite></blockquote>
+        <blockquote>Quero entrega rápida com prazo confiável e rastreamento em tempo real. Também gostaria de poder alterar o endereço facilmente e receber compensação automática em caso de atraso.<cite>Resposta da pesquisa</cite></blockquote>
+        <blockquote>Acredito que o que está sendo apresentado para melhorar os Correios está excelente.<cite>Resposta da pesquisa</cite></blockquote>
       </div>
     </div>
   </section>
@@ -338,7 +373,8 @@ footer{padding-block:32px;border-top:1px solid var(--line);color:var(--muted);fo
       <div class="faq">
         <details><summary>Isso é um serviço oficial dos Correios?</summary><p>Não. A Encomenda Já é uma proposta de melhoria para os Correios, criada por uma equipe de estudantes. Esta página testa se lojistas usariam essa modalidade.</p></details>
         <details><summary>Por que melhorar os Correios em vez de usar uma transportadora?</summary><p>Porque os Correios são os únicos que já chegam a todas as cidades. O que falta é velocidade e rastreio confiável, e é isso que a proposta resolve.</p></details>
-        <details><summary>Preciso pagar alguma coisa?</summary><p>Não. É só uma pesquisa de interesse, sem compromisso.</p></details>
+        <details><summary>Quanto vai custar?</summary><p>A meta é ficar em até R$ 25 por envio dentro da mesma região, a faixa que a maioria das pessoas da nossa pesquisa considerou justa.</p></details>
+        <details><summary>Preciso pagar alguma coisa para responder?</summary><p>Não. É só uma pesquisa de interesse, sem compromisso.</p></details>
         <details><summary>O que vocês fazem com os meus dados?</summary><p>Usamos apenas para contar o interesse na proposta e para enviar o resultado da pesquisa a quem aceitou receber.</p></details>
       </div>
     </div>
